@@ -10,11 +10,11 @@ export interface AccountState {
 const initialState: AccountState = {
     accountState:
     {
-        firstName: "",
-        lastName: "",
-        email: "",
-        billingStatus: "",
-        profileImage: ""
+        firstName: "First Name",
+        lastName: "Last Name",
+        email: "email@example.com",
+        billingStatus: "PRO",
+        profileImage: "/assets/author.jpeg"
     }
 
 };

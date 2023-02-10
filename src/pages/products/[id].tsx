@@ -37,6 +37,7 @@ const InformationSection = ({ product }: { product: Product }) => {
 
         <h3 className="title-sm">Author:</h3>
         <p className="body">{product.author}</p>
+
         <h3 className="title-sm">Description:</h3>
         <p className="body">{product.description}</p>
       </div>

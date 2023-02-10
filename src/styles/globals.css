@@ -57,6 +57,12 @@
   .form-label {
     @apply mb-0 block text-sm font-medium text-gray-700;
   }
+  .modal-backdrop{
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75;
+  }
+  .modal {
+    @apply fixed inset-0 z-50 flex flex-col items-center justify-center overflow-auto;
+  }
 }
 
 html{

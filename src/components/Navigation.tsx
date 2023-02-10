@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import NavLogo from "./NavLogo";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 // navigation header that is displayed on all pages. it contains the logo and link to home, products, cart and account page. It highlights the current page.
+
+const CartBadge = dynamic(() => import("../components/CartBadge"), {
+  ssr: false,
+});
 const pages = [
   {
     name: "Home",
@@ -15,6 +20,7 @@ const pages = [
   {
     name: "Cart",
     href: "/cart",
+    extra: <CartBadge />,
   },
   {
     name: "Account",
@@ -41,8 +47,9 @@ export const Navigation = () => {
                 currentPage === page.href ? "underline" : ""
               }`}
             >
-              <Link href={page.href} aria-label={page.name}>
+              <Link className="flex" href={page.href} aria-label={page.name}>
                 {page.name}
+                {page.extra ? page.extra : ""}
               </Link>
             </div>
           ))}

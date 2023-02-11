@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import NavLogo from "./NavLogo";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-// navigation header that is displayed on all pages. it contains the logo and link to home, products, cart and account page. It highlights the current page.
 
+/*
+ * This is the main navigation header that is displayed on all pages.
+ */
 const CartBadge = dynamic(() => import("../components/CartBadge"), {
   ssr: false,
 });

@@ -19,6 +19,10 @@ const initialState: AccountState = {
 
 };
 
+/*
+ *  This is the account slice. It is used to store the account state.
+ */
+
 export const accountSlice = createSlice({
     name: "account",
     initialState,

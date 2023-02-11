@@ -6,7 +6,9 @@ interface PageProps {
   name: string;
   children: React.ReactNode;
 }
-
+/*
+ * This is a base wrapper component for all pages. It contains the Navigation and the Head.
+ */
 export const Page = ({ name, children }: PageProps) => {
   return (
     <>

@@ -1,14 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import React from "react";
 import { selectAccountState, setAccountState } from "@/store/accountSlice";
 import { Account } from "@/types";
-import Image from "next/image";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+/*
+ *   This is a component that is used in the Account page.
+ *   This form that allows the user to edit their account information.
+ */
 const AccountForm = () => {
   const accountState = useSelector(selectAccountState);
   const dispatch = useDispatch();
-  console.log(accountState);
 
   const [formInputs, setFormInputs] = useState({
     firstName: accountState.firstName,
@@ -79,7 +82,6 @@ const ProfileImageSection = ({ account }: { account: Account }) => {
     setShowModal(!showModal);
   };
   const onSave = (value: string) => {
-    console.log(value);
     dispatch(
       setAccountState({
         ...account,
@@ -90,7 +92,7 @@ const ProfileImageSection = ({ account }: { account: Account }) => {
     alert("Saved");
   };
   return (
-    <div className="space-y-3 flex flex-col justify-center">
+    <div className="mt-1 space-y-6 flex flex-col justify-center">
       <img
         className="rounded-full"
         src={account.profileImage}
@@ -164,14 +166,14 @@ const ChangeProfileImageModal = ({
           />
           <div className="flex space-x-2">
             <button
-              className="btn btn-primary"
+              className="btn-primary"
               onClick={() => {
                 onSave(text);
               }}
             >
               Save
             </button>
-            <button className="btn btn-ghost" onClick={onCancel}>
+            <button className="btn-secondary" onClick={onCancel}>
               Cancel
             </button>
           </div>

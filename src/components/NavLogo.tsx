@@ -1,7 +1,10 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import { Logo } from "./Logo";
 
+/*
+ * This is a component that displays the Logo in the Navbar.
+ */
 const NavLogo = () => {
   return (
     <div className="flex items-center">

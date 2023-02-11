@@ -1,12 +1,16 @@
+import React from "react";
 import { addToCart, selectCartState } from "@/store/cartSlice";
 import { Product } from "@/types";
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 interface AddToCartSectionProps {
   product: Product;
   cartMode?: boolean;
 }
+
+/*
+ *   This component is used in Product Detail and in Cart pages.
+ */
 
 export const AddToCartSection = ({
   product,

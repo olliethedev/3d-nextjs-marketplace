@@ -4,6 +4,11 @@ import { loadState } from "./localStorage";
 import accountReducer, { accountSlice } from "./accountSlice";
 import cartReducer, { cartSlice } from "./cartSlice";
 
+
+/*
+ *  This is the store. It is used to store the redux state.
+ */
+
 const makeStore = () =>
     configureStore({
         reducer: {

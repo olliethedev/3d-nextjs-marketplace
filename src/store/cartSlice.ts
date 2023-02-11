@@ -11,6 +11,10 @@ const initialState: CartState = {
     cartState: [],
 };
 
+
+/*
+ *  This is the cart slice. It is used to store the cart state.
+ */
 export const cartSlice = createSlice({
     name: "cart",
     initialState,
@@ -22,17 +26,9 @@ export const cartSlice = createSlice({
         addToCart(state, action) {
 
             const newProduct = action.payload;
-            console.log({
-                newProduct: newProduct.id,
-                quantity: newProduct.quantity
-            })
             const existingProduct = state.cartState.find(
                 (product) => product.id === newProduct.id
             );
-            console.log({
-                existingProduct: existingProduct?.id,
-                quantity: existingProduct?.quantity
-            })
             if (existingProduct) {
                 if (newProduct.quantity <= 0) {
                     state.cartState = state.cartState.filter(

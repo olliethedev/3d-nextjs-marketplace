@@ -6,6 +6,11 @@ import { Product } from "@/types";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 
+/*
+ * This page is a dynamic route. It will be generated for each product in the
+ * PRODUCTS array. The id parameter is used to find the correct product.
+ */
+
 export default function ProductDetail({ product }: { product: Product }) {
   return (
     <Page name={`${product.name} | Marketplace`}>
@@ -45,9 +50,12 @@ const InformationSection = ({ product }: { product: Product }) => {
   );
 };
 
+/*
+ * This SSR function could be used to fetch the product from a database.
+ */
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context?.params?.id;
-  console.log(id);
   if (typeof id !== "string") {
     return {
       notFound: true,

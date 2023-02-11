@@ -7,6 +7,9 @@ const Banner = dynamic(() => import("../components/CanvasBanner"), {
   ssr: false,
 });
 
+/*
+ *  This is the home page. It contains the 3D Banner component.
+ */
 export default function Home({ author }: { author: Author }) {
   return (
     <Page name="Home | Marketplace">

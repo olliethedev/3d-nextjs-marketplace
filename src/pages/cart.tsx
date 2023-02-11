@@ -6,6 +6,9 @@ const CartList = dynamic(() => import("../components/CartList"), {
   ssr: false,
 });
 
+/*
+ *  This is the cart page. It contains the CartList component.
+ */
 export default function Cart() {
   return (
     <Page name="Cart | Marketplace">

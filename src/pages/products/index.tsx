@@ -1,10 +1,13 @@
+import React from "react";
 import { Page } from "@/components/Page";
 import { PRODUCTS } from "@/data";
 import { Product } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
+/*
+ * This page displays a list of products.
+ */
 export default function Products({ products }: { products: Product[] }) {
   return (
     <Page name="Products | Marketplace">
@@ -43,6 +46,9 @@ const ProductCard = ({ product }: { product: Product }) => {
   );
 };
 
+/*
+ * This SSR function could be used to fetch the products from a database.
+ */
 export const getServerSideProps = async () => {
   return {
     props: {

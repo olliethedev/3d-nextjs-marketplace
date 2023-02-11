@@ -12,6 +12,32 @@ interface CanvasBannerProps {
   image: string;
 }
 
+interface BasePlaneProps {
+  position: [number, number, number];
+  rotateX?: any;
+  rotateY?: any;
+  rotateZ?: any;
+  scale?: any;
+}
+
+interface TextPlaneProps extends BasePlaneProps {
+  text: string;
+}
+
+interface ImagePlaneProps extends BasePlaneProps {
+  asset: string;
+}
+
+interface ColorPlaneProps extends BasePlaneProps {
+  color: string;
+  args?: any;
+}
+
+/*
+ *   This is a banner element consisting of a 3D canvas with a multiple planes,
+ *   including a text plane and an image plane.
+ */
+
 const CanvasBanner = ({ text, image }: CanvasBannerProps) => {
   return (
     <div
@@ -30,7 +56,7 @@ const CanvasBanner = ({ text, image }: CanvasBannerProps) => {
         <directionalLight position={[-2, 5, 2]} />
         <Suspense fallback={null}>
           <TextPlane text={text} position={[0, -0.0, -0.51]} />
-          <ImagePlane position={[0.0, 0, 0.5]} asset="/assets/author.jpeg" />
+          <ImagePlane position={[0.0, 0, 0.5]} asset={image} />
 
           <ColorPlane
             position={[0.5, 0, 0.0]}
@@ -67,9 +93,9 @@ const CanvasBanner = ({ text, image }: CanvasBannerProps) => {
   );
 };
 
-function TextPlane(props: any) {
+function TextPlane(props: TextPlaneProps) {
   return (
-    <group {...props}>
+    <group position={props.position}>
       <Text
         scale={[0.5, 0.5, 1]}
         rotation={[0, Math.PI, 0]}
@@ -77,13 +103,13 @@ function TextPlane(props: any) {
         maxWidth={1.9}
         lineHeight={0.85}
       >
-        {props.text ?? "Hello World"}
+        {props.text}
       </Text>
     </group>
   );
 }
 
-const ImagePlane = (props: any) => {
+const ImagePlane = (props: ImagePlaneProps) => {
   const ref = useRef<Mesh<BufferGeometry, Material | Material[]>>();
   const texture = useLoader(TextureLoader, props.asset) as Texture;
 
@@ -113,7 +139,7 @@ const ImagePlane = (props: any) => {
   );
 };
 
-const ColorPlane = (props: any) => {
+const ColorPlane = (props: ColorPlaneProps) => {
   const ref = useRef<Mesh<BufferGeometry, Material | Material[]>>();
 
   useFrame((state) => {

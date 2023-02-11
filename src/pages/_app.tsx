@@ -6,6 +6,10 @@ import { Provider } from "react-redux";
 import { wrapper } from "../store/store";
 import { useEffect } from "react";
 
+/*
+ *  This is the main app component. It wraps the entire app with the Redux store.
+ */
+
 function App({ Component, pageProps }: AppProps) {
   const { store } = wrapper.useWrappedStore(pageProps);
   useEffect(() => {

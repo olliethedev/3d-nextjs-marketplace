@@ -1,8 +1,13 @@
+import React from "react";
 import { selectCartState } from "@/store/cartSlice";
 import { CartProduct } from "@/types";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { AddToCartSection } from "./AddToCartSection";
+
+/*
+ *  This component is used in the Cart page.
+ */
 
 const CartList = () => {
   const cartState = useSelector(selectCartState);

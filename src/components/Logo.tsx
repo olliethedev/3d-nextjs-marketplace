@@ -1,3 +1,9 @@
+import React from "react";
+
+/*
+ * This is a component that displays the site logo.
+ */
+
 export const Logo = (props: React.ComponentPropsWithoutRef<"svg">) => {
   return (
     <svg aria-hidden="true" viewBox="0 0 512 512" {...props}>

@@ -1,4 +1,9 @@
 const KEY = "redux";
+
+/*
+ *  This is the local storage util. It is used to store the redux state.
+ */
+
 export function loadState() {
     try {
         if (typeof window === "undefined") return undefined;
